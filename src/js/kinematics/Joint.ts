@@ -35,14 +35,20 @@ let Joint = {
         let v = Vector.lineCoords(this.getX(), this.getY(), this.getLength(), this.getAngle());
         return { x: v.endX, y: v.endY };
     },
+    setParent:function(value: any){
+        this.config.parentJoint = value
+    },
+    getParent:function(){
+        return  this.config.parentJoint || null;
+    },
     render: function (ctx) {
         let v = Vector.lineCoords(this.getX(), this.getY(), this.getLength(), this.getAngle());
-        console.log("Rendering ---- ", v)
+        console.log( "Rendering ---- ", this.getParent() );
         ctx.beginPath();
-
         ctx.beginPath();
         ctx.strokeStyle = this.getStrokColor();
-        ctx.moveTo(v.startX, v.startY);
+        this.getParent() ? ctx.moveTo(this.getParent().getEndPoint().x, this.getParent().getEndPoint().y) : 
+                            ctx.moveTo(v.startX, v.startY)  ;
         ctx.lineTo(v.endX, v.endY);
         ctx.stroke();
         ctx.fillStyle = this.getFillColor();
@@ -52,10 +58,7 @@ let Joint = {
 }
 
 export default {
-
-
     create: (config) => {
-
         let _config = {
         x: 0,
         y: 0,

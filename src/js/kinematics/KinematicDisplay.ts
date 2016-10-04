@@ -54,7 +54,12 @@ let KinematicDisplay = {
         return this._joints;
     },
     addJoint:function(config = {}){
-        this._joints.push(Joint.create(config));
+        let j = Joint.create(config);
+
+        if( this._joints.length > 0){
+            j.setParent(this._joints[this._joints.length - 1]);
+        }
+        this._joints.push(j);
     }
 };
 
