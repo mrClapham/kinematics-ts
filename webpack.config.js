@@ -13,7 +13,17 @@ module.exports = {
                 test: /\.ts(x?)$/,
                 loader: 'babel-loader!ts-loader',
                 exclude: /node_modules/
-            }
+            },
+            {
+                test: /\.jsx?$/, // A regexp to test the require path. accepts either js or jsx
+                exclude: /node_modules/,
+                loader: ['babel'], // The module to load. "babel" is short for "babel-loader"
+                query: {
+                    presets: ['es2015']
+                },
+                "plugins": []
+            },
         ]
-    }
+    },
+
 }
