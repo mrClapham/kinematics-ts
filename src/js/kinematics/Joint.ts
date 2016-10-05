@@ -34,6 +34,12 @@ let Joint = {
     setAngle: function (value) {
         this.config.angle = value;
     },
+    getLineTickness: function(): number{
+        return this.config.lineThickness
+    },
+    getShowing: function(): boolean{
+        return this.config.show
+    },
     getEndPoint: function (){
         let v = Vector.lineCoords(this.getX(), this.getY(), this.getLength(), this.getAngle());
         return { x: v.endX, y: v.endY };
@@ -45,20 +51,25 @@ let Joint = {
         return  this.config.parentJoint || null;
     },
     render: function (ctx) {
-        this.setAngle(this.getAngle() + this.getStep())
+        this.getAngle() < 360 ? this.setAngle(this.getAngle() + this.getStep()) : this.setAngle(this.getStep());
+
+        if(this.getParent()){
+            let _p = this.getParent();
+            this.setX(_p.getEndPoint().x );
+            this.setY(_p.getEndPoint().y );
+        console.log("Parent exists")
+        }
         let v = Vector.lineCoords(this.getX(), this.getY(), this.getLength(), this.getAngle());
         console.log( "Rendering ---- ", this.getAngle() );
         ctx.beginPath();
         ctx.beginPath();
         ctx.strokeStyle = this.getStrokColor();
-        this.getParent() ? ctx.moveTo(this.getParent().getEndPoint().x, this.getParent().getEndPoint().y) : 
-                            ctx.moveTo(v.startX, v.startY)  ;
+        ctx.moveTo(v.startX, v.startY)  
         ctx.lineTo(v.endX, v.endY);
         ctx.stroke();
         ctx.fillStyle = this.getFillColor();
-        ctx.lineWidth = this.guideThickness;
+        ctx.lineWidth = this.getLineTickness();
         ctx.fill();
-
     }
 }
 
@@ -71,7 +82,9 @@ export default {
         angle: 10,
         step: 3,
         fillColor: "rgba(255, 0, 255, .7)",
-        strokeColor: "rgba(255, 0, 255, .7)"
+        strokeColor: "rgba(255, 0, 255, .7)",
+        lineThickness: .25,
+        show: true
         };
 
         let _combinedConfig = (<any>Object).assign(_config, config);
