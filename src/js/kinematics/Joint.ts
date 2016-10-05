@@ -16,7 +16,10 @@ let Joint = {
     setY: function (y): void {
         this.config.y = y;
     },
-    getLength: function () {
+    getStep: function(): number{
+        return this.config.step;
+    },
+    getLength: function (): number {
         return this.config.length;
     },
     getFillColor: function () {
@@ -31,7 +34,7 @@ let Joint = {
     setAngle: function (value) {
         this.config.angle = value;
     },
-    getEndPoint: function () {
+    getEndPoint: function (){
         let v = Vector.lineCoords(this.getX(), this.getY(), this.getLength(), this.getAngle());
         return { x: v.endX, y: v.endY };
     },
@@ -42,8 +45,9 @@ let Joint = {
         return  this.config.parentJoint || null;
     },
     render: function (ctx) {
+        this.setAngle(this.getAngle() + this.getStep())
         let v = Vector.lineCoords(this.getX(), this.getY(), this.getLength(), this.getAngle());
-        console.log( "Rendering ---- ", this.getParent() );
+        console.log( "Rendering ---- ", this.getAngle() );
         ctx.beginPath();
         ctx.beginPath();
         ctx.strokeStyle = this.getStrokColor();
@@ -54,6 +58,7 @@ let Joint = {
         ctx.fillStyle = this.getFillColor();
         ctx.lineWidth = this.guideThickness;
         ctx.fill();
+
     }
 }
 
