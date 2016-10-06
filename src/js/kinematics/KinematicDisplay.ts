@@ -15,7 +15,7 @@ let _createCanvas = (target: HTMLElement , width: number, height: number) => {
 
 let KinematicDisplay = {
     _joints:[],
-    config: { _canvas: null, width: 800, height: 800 },
+    config: { _canvas: null, width: 1000, height: 1000 },
     render:function(){
         let ctx = this.getCanvas().getContext("2d");
         this.getJoints().map((d,i)=>{
