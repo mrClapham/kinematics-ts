@@ -17,14 +17,13 @@ describe("Kinematic Display", ()=>{
     it("Should return an instance of the KinematicDispaly ", ()=>{
         expect(k).toBe.truthy;
     });
-/*
+
     it("Should throw an Error ", ()=>{
         expect(()=>{ 
                 let kb = KinematicDisplay.create("notarg");
-        })
+        }).toThrow(new Error("There is no DOM element notarg"));
     });
-*/
-// TODO: find syntax for throwing an Error 
+
 });
 
 describe("The joint component",()=>{

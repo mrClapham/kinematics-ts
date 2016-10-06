@@ -52,24 +52,14 @@ let Joint = {
     },
     render: function (ctx) {
        this.getAngle() < 360 ? this.setAngle(this.getAngle() + this.getStep()) : this.setAngle(this.getStep());
-
         if(this.getParent()){
             let _p = this.getParent();
             this.setX(_p.getEndPoint().x );
             this.setY(_p.getEndPoint().y );
-        console.log("Parent exists  ",_p.getEndPoint());
-
         }
-
         let _x= this.getX(), _y=this.getY();
-
-        console.log("_x  ",_x);
-        console.log("_y  ",_y);
-
         let v = Vector.lineCoords(_x, _y, this.getLength(), this.getAngle());
-
-        console.log(v);
-        console.log( "Rendering ---- ", this.getAngle() );
+        if(this.getShowing()){
         ctx.beginPath();
         ctx.beginPath();
         ctx.strokeStyle = this.getStrokColor();
@@ -79,6 +69,7 @@ let Joint = {
         ctx.fillStyle = this.getFillColor();
         ctx.lineWidth = this.getLineTickness();
         ctx.fill();
+        }
     }
 }
 
@@ -92,7 +83,7 @@ export default {
         step: 3,
         fillColor: "rgba(255, 0, 255, .7)",
         strokeColor: "rgba(255, 0, 255, .7)",
-        lineThickness: 1,
+        lineThickness: .5,
         show: true
         };
 
