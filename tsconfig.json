@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "source"            :"src/js/utils/Vector.ts",
+    "destination"       :"documentation",
     "target": "es5",
     "module": "commonjs"
   },

@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     _kd = KinematicDisplay.create("content");
     _kd.addJoint({
         show: false,
-        x: 500,
-        y: 550,
-        length: 500, 
+        x: 700,
+        y: 300,
+        length: 300, 
         angle: 0,
         step: .3,
         fillColor:   "rgba(45, 232, 141, 1)",
@@ -16,19 +16,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     _kd.addJoint({
         show: true,
-        x: 600,
-        y: 600,
-        length: 90,
-        angle: 90,
+        x: 0,
+        y: 0,
+        length: 49,
+        angle: 20,
         step: -.17,
         fillColor:   "rgba(255, 0, 255, .7)",
         strokeColor: "rgba(45, 232, 141, 1)"
     });
     
     _kd.addJoint({
-        x: 540,
-        y: 50,
-        length: 290,
+        x: 0,
+        y: 0,
+        length: 390,
         angle: 10,
         step: .9,
         fillColor:   "rgba(255, 0, 255, .7)",

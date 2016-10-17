@@ -1,0 +1,22 @@
+{
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": [
+            "jsdoc"        
+            ]
+    },
+    "tsdoc": {
+        "source": "src/js/kinematics/Joint.ts",
+        "destination": "docs",
+        "systemName": "Kinematics",
+        "footer": "-- kinematics -- ",
+        "copyright": "2016 Graham Clapham",
+        "outputSourceFiles": "true",
+        "commentsOnly": "false"
+    },
+    "plugins": [],
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false
+    }
+}

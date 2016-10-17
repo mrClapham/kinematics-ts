@@ -11,15 +11,14 @@ describe("lineCoords", () => {
         expect(v2.startY).toEqual(30);
     });
 
-it("Should correctly calculate the end X and Y positions", ()=>{
-    let startX = 10;
-    let startY = 10;
-    let width = 4;
-    let height = 4;
-    let length = Math.sqrt((width*width) + (height*height));
-    let angle = 45;
-    let v = Vector.lineCoords(startX, startY, length, angle);
-    expect(v.endX).toEqual(14);
-});
-
+    it("Should correctly calculate the end X and Y positions", () => {
+        let startX = 10;
+        let startY = 10;
+        let width = 4;
+        let height = 4;
+        let length = Math.sqrt((width * width) + (height * height));
+        let angle = 45;
+        let v = Vector.lineCoords(startX, startY, length, angle);
+        expect(v.endX).toEqual(14);
+    });
 });

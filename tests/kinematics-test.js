@@ -23,7 +23,6 @@ describe("Kinematic Display", ()=>{
                 let kb = KinematicDisplay.create("notarg");
         }).toThrow(new Error("There is no DOM element notarg"));
     });
-
 });
 
 describe("The joint component",()=>{

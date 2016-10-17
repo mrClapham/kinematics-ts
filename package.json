@@ -26,6 +26,7 @@
     "karma-webpack": "^1.8.0",
     "nodemon": "^1.10.2",
     "ts-loader": "^0.8.2",
+    "tsdocs": "^1.0.2",
     "typescript": "^1.8.10"
   },
   "dependencies": {
